@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - BizNet</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="jobs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">BizNet</a>
+            </div>
+            <div class="nav-menu">
+                <a href="jobs.html" class="nav-link">İş Elanları</a>
+                <a href="freelancers.html" class="nav-link">Freelancerlar</a>
+                <a href="companies.html" class="nav-link">Şirkətlər</a>
+                <a href="messages.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span class="notification-badge">3</span>
+                </a>
+                <div class="user-menu">
+                    <div class="user-avatar" id="userAvatar">
+                        <img src="" alt="Profil" id="avatarImg">
+                        <span class="user-name" id="userName">İstifadəçi</span>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user"></i> Profilim
+                        </a>
+                        <a href="balance.html" class="dropdown-item">
+                            <i class="fas fa-wallet"></i> Balansım
+                        </a>
+                        <a href="messages.html" class="dropdown-item">
+                            <i class="fas fa-envelope"></i> Mesajlar
+                            <span class="badge">3</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Çıxış
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <!-- Sidebar -->
+        <div class="profile-sidebar">
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <img id="profileAvatar" src="" alt="Profil Şəkli">
+                    <button class="avatar-upload-btn" id="avatarUpload">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <h2 id="profileName">Ad Soyad</h2>
+                    <p class="profile-type" id="profileType">Freelancer</p>
+                    <p class="profile-email" id="profileEmail">email@example.com</p>
+                    <p class="profile-phone" id="profilePhone">+994 __ ___ __ __</p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="jobCount">0</span>
+                            <span class="stat-label">İş Sayı</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="rating">0.0</span>
+                            <span class="stat-label">Reytinq</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="balance">0₼</span>
+                            <span class="stat-label">Balans</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="profile-nav">
+                <a href="#personal" class="nav-item active" data-tab="personal">
+                    <i class="fas fa-user"></i> Şəxsi Məlumatlar
+                </a>
+                <a href="#skills" class="nav-item" data-tab="skills">
+                    <i class="fas fa-star"></i> Bacarıqlar
+                </a>
+                <a href="#jobs" class="nav-item" data-tab="jobs">
+                    <i class="fas fa-briefcase"></i> Elanlarım
+                </a>
+                <a href="#portfolio" class="nav-item" data-tab="portfolio">
+                    <i class="fas fa-images"></i> Portfolio
+                </a>
+                <a href="#reviews" class="nav-item" data-tab="reviews">
+                    <i class="fas fa-comment"></i> Rəylər
+                </a>
+                <a href="#settings" class="nav-item" data-tab="settings">
+                    <i class="fas fa-cog"></i> Tənzimləmələr
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="profile-content">
+            <!-- Personal Information Tab -->
+            <div class="tab-content active" id="personal-tab">
+                <div class="tab-header">
+                    <h3>Şəxsi Məlumatlar</h3>
+                    <button class="edit-btn" id="editPersonalBtn">
+                        <i class="fas fa-edit"></i> Redaktə et
+                    </button>
+                </div>
+                
+                <form id="personalForm" class="profile-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ad</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Soyad</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="profileEmailInput" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            <input type="tel" id="profilePhoneInput" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Haqqımda</label>
+                        <textarea id="about" name="about" rows="4" placeholder="Özünüz haqqında qısa məlumat..."></textarea>
+                    </div>
+
+                    <!-- Freelancer Specific Fields -->
+                    <div id="freelancerFields">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>İxtisas</label>
+                                <select id="profession" name="profession">
+                                    <option value="">Seçin</option>
+                                    <option value="developer">Proqramlaşdırıcı</option>
+                                    <option value="designer">Dizayner</option>
+                                    <option value="writer">Yazıçı</option>
+                                    <option value="marketing">Marketinq</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Təcrübə</label>
+                                <select id="experience" name="experience">
+                                    <option value="">Seçin</option>
+                                    <option value="entry">Yeni başlayan (0-1 il)</option>
+                                    <option value="junior">Kiçik (1-3 il)</option>
+                                    <option value="mid">Orta (3-5 il)</option>
+                                    <option value="senior">Böyük (5+ il)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Günlük Qiymət</label>
+                                <input type="number" id="dailyRate" name="dailyRate" placeholder="0">
+                            </div>
+                            <div class="form-group">
+                                <label>Məşğulluq</label>
+                                <select id="employment" name="employment">
+                                    <option value="fulltime">Tam iş günü</option>
+                                    <option value="parttime">Yarım iş günü</option>
+                                    <option value="freelance">Freelance</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Specific Fields -->
+                    <div id="businessFields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Şirkət Adı</label>
+                                <input type="text" id="companyName" name="companyName">
+                            </div>
+                            <div class="form-group">
+                                <label>Şirkət Tipi</label>
+                                <select id="companyType" name="companyType">
+                                    <option value="">Seçin</option>
+                                    <option value="restaurant">Restoran</option>
+                                    <option value="market">Market</option>
+                                    <option value="tech">Texnologiya</option>
+                                    <option value="service">Xidmət</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Şirkət Haqqında</label>
+                            <textarea id="companyAbout" name="companyAbout" rows="3" placeholder="Şirkətiniz haqqında məlumat..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" id="cancelPersonalBtn">Ləğv et</button>
+                        <button type="submit" class="save-btn">Yadda saxla</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Skills Tab -->
+            <div class="tab-content" id="skills-tab">
+                <div class="tab-header">
+                    <h3>Bacarıqlar</h3>
+                    <button class="add-btn" id="addSkillBtn">
+                        <i class="fas fa-plus"></i> Əlavə et
+                    </button>
+                </div>
+                
+                <div class="skills-container">
+                    <div class="skills-list" id="skillsList">
+                        <!-- Skills will be loaded here -->
+                    </div>
+                    
+                    <form id="skillForm" class="skill-form" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Bacarıq Adı</label>
+                                <input type="text" id="skillName" placeholder="Məsələn: JavaScript">
+                            </div>
+                            <div class="form-group">
+                                <label>Səviyyə</label>
+                                <select id="skillLevel">
+                                    <option value="beginner">Yeni başlayan</option>
+                                    <option value="intermediate">Orta</option>
+                                    <option value="advanced">İleri</option>
+                                    <option value="expert">Ekspert</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="cancel-btn" id="cancelSkillBtn">Ləğv et</button>
+                            <button type="submit" class="save-btn">Əlavə et</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Jobs Tab -->
+            <div class="tab-content" id="jobs-tab">
+                <div class="tab-header">
+                    <h3>Elanlarım</h3>
+                    <a href="post-job.html" class="add-btn">
+                        <i class="fas fa-plus"></i> Yeni Elan
+                    </a>
+                </div>
+                
+                <div class="jobs-filter">
+                    <button class="filter-btn active" data-status="all">Hamısı</button>
+                    <button class="filter-btn" data-status="active">Aktiv</button>
+                    <button class="filter-btn" data-status="pending">Gözləyən</button>
+                    <button class="filter-btn" data-status="completed">Tamamlanmış</button>
+                </div>
+                
+                <div class="jobs-list" id="jobsList">
+                    <!-- Jobs will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Portfolio Tab -->
+            <div class="tab-content" id="portfolio-tab">
+                <div class="tab-header">
+                    <h3>Portfolio</h3>
+                    <button class="add-btn" id="addPortfolioBtn">
+                        <i class="fas fa-plus"></i> Əlavə et
+                    </button>
+                </div>
+                
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- Portfolio items will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="tab-content" id="reviews-tab">
+                <div class="tab-header">
+                    <h3>Rəylər</h3>
+                    <div class="rating-overview">
+                        <div class="average-rating">
+                            <span class="rating-number" id="averageRating">0.0</span>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count" id="reviewCount">0 rəy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reviews-list" id="reviewsList">
+                    <!-- Reviews will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="tab-content" id="settings-tab">
+                <div class="tab-header">
+                    <h3>Tənzimləmələr</h3>
+                </div>
+                
+                <div class="settings-sections">
+                    <div class="settings-section">
+                        <h4>Hesab Tənzimləmələri</h4>
+                        <div class="setting-item">
+                            <label>Email bildirişləri</label>
+                            <label class="switch">
+                                <input type="checkbox" id="emailNotifications" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>SMS bildirişləri</label>
+                            <label class="switch">
+                                <input type="checkbox" id="smsNotifications">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h4>Təhlükəsizlik</h4>
+                        <button class="setting-action-btn" id="changePasswordBtn">
+                            <i class="fas fa-lock"></i> Şifrəni dəyiş
+                        </button>
+                        <button class="setting-action-btn" id="twoFactorBtn">
+                            <i class="fas fa-shield-alt"></i> 2FA aktiv et
+                        </button>
+                    </div>
+
+                    <div class="settings-section danger-zone">
+                        <h4>Təhlükəli Zona</h4>
+                        <button class="danger-btn" id="deleteAccountBtn">
+                            <i class="fas fa-trash"></i> Hesabı sil
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="modal" id="passwordModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Şifrəni dəyiş</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label>Köhnə şifrə</label>
+                    <input type="password" id="oldPassword" required>
+                </div>
+                <div class="form-group">
+                    <label>Yeni şifrə</label>
+                    <input type="password" id="newPassword" required>
+                </div>
+                <div class="form-group">
+                    <label>Yeni şifrə təkrar</label>
+                    <input type="password" id="confirmNewPassword" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn modal-close">Ləğv et</button>
+                    <button type="submit" class="save-btn">Dəyiş</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

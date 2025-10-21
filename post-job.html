@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elan Yerləşdir - BizNet</title>
+    <link rel="stylesheet" href="post-job.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">BizNet</a>
+            </div>
+            <div class="nav-menu">
+                <a href="jobs.html" class="nav-link">İş Elanları</a>
+                <a href="freelancers.html" class="nav-link">Freelancerlar</a>
+                <a href="companies.html" class="nav-link">Şirkətlər</a>
+                <a href="messages.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span class="notification-badge">3</span>
+                </a>
+                <div class="user-menu">
+                    <div class="user-avatar" id="userAvatar">
+                        <img src="" alt="Profil" id="avatarImg">
+                        <span class="user-name" id="userName">İstifadəçi</span>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user"></i> Profilim
+                        </a>
+                        <a href="balance.html" class="dropdown-item">
+                            <i class="fas fa-wallet"></i> Balansım
+                        </a>
+                        <a href="messages.html" class="dropdown-item">
+                            <i class="fas fa-envelope"></i> Mesajlar
+                            <span class="badge">3</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Çıxış
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Job Container -->
+    <div class="post-job-container">
+        <div class="post-job-header">
+            <h1>Yeni Elan Yerləşdir</h1>
+            <p>İş, xidmət və ya məhsulunuzu paylaşın</p>
+        </div>
+
+       <!-- YENİLƏNMİŞ Subscription Check -->
+<div class="subscription-check" id="subscriptionCheck" style="display: none;">
+    <div class="subscription-alert">
+        <div class="alert-icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="alert-content">
+            <h3>Abunəlik Tələb Olunur</h3>
+            <p><strong>Şirkət, Restoran və Market</strong> istifadəçiləri elan yerləşdirmək üçün abunəlik almalıdır.</p>
+            <p><strong>Freelancerlar</strong> pulsuz elan yerləşdirə bilər.</p>
+            <div class="alert-actions">
+                <a href="pricing.html" class="btn-primary">Abunəlik Planlarına Bax</a>
+                <button class="btn-secondary" onclick="hideSubscriptionAlert()">Bağla</button>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="post-job-content">
+            <!-- Left Side - Form -->
+            <div class="form-section">
+                <form id="postJobForm" class="job-form">
+                    <!-- Elan Tipi -->
+                    <div class="form-group">
+                        <label class="form-label">Elan Tipi</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="jobType" value="job" checked>
+                                <span class="radio-custom"></span>
+                                İş Elanı
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="jobType" value="service">
+                                <span class="radio-custom"></span>
+                                Xidmət
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="jobType" value="product">
+                                <span class="radio-custom"></span>
+                                Məhsul
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Əsas Məlumatlar -->
+                    <div class="form-group">
+                        <label for="jobTitle" class="form-label">Elan Başlığı *</label>
+                        <input type="text" id="jobTitle" name="jobTitle" placeholder="Məsələn: Veb Developer, Restoran işçisi" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category" class="form-label">Kateqoriya *</label>
+                            <select id="category" name="category" required>
+                                <option value="">Seçin</option>
+                                <option value="it">IT & Texnologiya</option>
+                                <option value="design">Dizayn & Yaradıcılıq</option>
+                                <option value="marketing">Marketinq & Satış</option>
+                                <option value="restaurant">Restoran & Qida</option>
+                                <option value="retail">Market & Pərakəndə</option>
+                                <option value="education">Təhsil & Tədris</option>
+                                <option value="health">Səhiyyə</option>
+                                <option value="other">Digər</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subcategory" class="form-label">Alt Kateqoriya</label>
+                            <select id="subcategory" name="subcategory">
+                                <option value="">Seçin</option>
+                                <!-- Dynamic subcategories will be loaded -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Təsvir -->
+                    <div class="form-group">
+                        <label for="description" class="form-label">İş Təsviri *</label>
+                        <div class="editor-toolbar">
+                            <button type="button" class="toolbar-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+                            <button type="button" class="toolbar-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+                            <button type="button" class="toolbar-btn" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
+                            <button type="button" class="toolbar-btn" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                        </div>
+                        <textarea id="description" name="description" rows="8" placeholder="İş haqqında ətraflı məlumat yazın..." required></textarea>
+                    </div>
+
+                    <!-- Tələblər -->
+                    <div class="form-group">
+                        <label class="form-label">Tələblər</label>
+                        <div class="requirements-list" id="requirementsList">
+                            <!-- Requirements will be added here -->
+                        </div>
+                        <button type="button" class="add-requirement-btn" onclick="addRequirement()">
+                            <i class="fas fa-plus"></i> Tələb əlavə et
+                        </button>
+                    </div>
+
+                    <!-- Şəkillər -->
+                    <div class="form-group">
+                        <label class="form-label">Şəkillər</label>
+                        <div class="image-upload-container">
+                            <div class="upload-area" id="uploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Şəkilləri buraya sürüşdürün və ya klikləyin</p>
+                                <span>JPG, PNG - Maksimum 5MB</span>
+                                <input type="file" id="imageUpload" multiple accept="image/*" style="display: none;">
+                            </div>
+                            <div class="image-preview" id="imagePreview">
+                                <!-- Image previews will be shown here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Qiymət & Budget -->
+                    <div class="form-group">
+                        <label class="form-label">Qiymət & Budget</label>
+                        <div class="price-options">
+                            <label class="radio-label">
+                                <input type="radio" name="priceType" value="fixed" checked>
+                                <span class="radio-custom"></span>
+                                Müəyyən qiymət
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="priceType" value="range">
+                                <span class="radio-custom"></span>
+                                Qiymət aralığı
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="priceType" value="negotiable">
+                                <span class="radio-custom"></span>
+                                Müzakirə olunan
+                            </label>
+                        </div>
+                        
+                        <div class="price-inputs">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="number" id="price" name="price" placeholder="Qiymət">
+                                </div>
+                                <div class="form-group">
+                                    <select id="currency" name="currency">
+                                        <option value="AZN">AZN</option>
+                                        <option value="USD">USD</option>
+                                        <option value="EUR">EUR</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="price-range" id="priceRange" style="display: none;">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <input type="number" id="minPrice" name="minPrice" placeholder="Min qiymət">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" id="maxPrice" name="maxPrice" placeholder="Max qiymət">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lokasiya -->
+                    <div class="form-group">
+                        <label for="location" class="form-label">Lokasiya *</label>
+                        <div class="location-input">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="location" name="location" placeholder="Şəhər, rayon və ya ünvan" required>
+                        </div>
+                    </div>
+
+                    <!-- Əlaqə Məlumatları -->
+                    <div class="form-group">
+                        <label class="form-label">Əlaqə Məlumatları</label>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="contactName" name="contactName" placeholder="Əlaqə şəxsi">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="contactPhone" name="contactPhone" placeholder="Telefon nömrəsi">
+                            </div>
+                        </div>
+                        <input type="email" id="contactEmail" name="contactEmail" placeholder="Email ünvanı">
+                    </div>
+
+                    <!-- Təcili & Featured -->
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="isUrgent" name="isUrgent">
+                                <span class="checkmark"></span>
+                                Təcili elan (əlavə 5 AZN)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="isFeatured" name="isFeatured">
+                                <span class="checkmark"></span>
+                                Featured elan (əlavə 15 AZN)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="previewJob()">
+                            <i class="fas fa-eye"></i> Ön baxış
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Elanı Yerləşdir
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right Side - Preview & Info -->
+            <div class="preview-section">
+                <!-- Preview Card -->
+                <div class="preview-card">
+                    <h3>Elan Ön Baxış</h3>
+                    <div class="preview-content" id="previewContent">
+                        <div class="preview-placeholder">
+                            <i class="fas fa-newspaper"></i>
+                            <p>Elan məlumatları daxil edildikdə burada ön baxış görünəcək</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips & Guidelines -->
+                <div class="tips-card">
+                    <h4>📝 Elan Yerləşdirmə Tövsiyələri</h4>
+                    <ul class="tips-list">
+                        <li>Başlıq aydın və cəlbedici olsun</li>
+                        <li>Təsviri ətraflı və anlaşılan yazın</li>
+                        <li>Şəkillər yüksək keyfiyyətli olsun</li>
+                        <li>Qiymət bazar standartlarına uyğun olsun</li>
+                        <li>Əlaqə məlumatları düzgün olsun</li>
+                    </ul>
+                </div>
+
+                <!-- Subscription Info -->
+                <div class="subscription-info">
+                    <h4>👑 Abunəlik Üstünlükləri</h4>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Daha çox elan yerləşdirə bilərsiniz</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Elanlarınız featured olur</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Axtarışlarda üst sıralarda görünür</span>
+                        </div>
+                    </div>
+                    <a href="pricing.html" class="btn-outline">
+                        <i class="fas fa-crown"></i> Abunəlik Planları
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Elan Ön Baxış</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modalPreviewContent">
+                <!-- Preview content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-close">Redaktə et</button>
+                <button class="btn-primary" onclick="submitJob()">Təsdiq et və Yerləşdir</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="post-job.js"></script>
+</body>
+</html>

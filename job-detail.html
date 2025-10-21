@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Developer - TechCorp MMC - BizNet.az</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="job-detail.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>BizNet<span>.az</span></h2>
+                </div>
+                
+                <nav class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Ana Səhifə</a></li>
+                        <li><a href="jobs.html">Bütün Elanlar</a></li>
+                        <li><a href="freelancers.html">Freelancerlar</a></li>
+                        <li><a href="companies.html">Şirkətlər</a></li>
+                        <li><a href="restaurants.html">Restoran/Market</a></li>
+                        <li><a href="post-job.html" class="post-job-btn">Elan Yerləşdir</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-auth">
+                    <a href="login.html" class="login-btn">Giriş</a>
+                    <a href="register.html" class="register-btn">Qeydiyyat</a>
+                </div>
+
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Ana Səhifə</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="jobs.html">İş Elanları</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="jobs.html?category=it">IT & Texnologiya</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Frontend Developer</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- JOB DETAIL CONTENT -->
+    <section class="job-detail">
+        <div class="container">
+            <div class="job-detail-container">
+                <!-- MAIN CONTENT -->
+                <main class="job-main">
+                    <!-- JOB HEADER -->
+                    <div class="job-header">
+                        <div class="job-title-section">
+                            <h1>Frontend Developer</h1>
+                            <div class="job-meta">
+                                <div class="company-info">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="TechCorp MMC" class="company-logo">
+                                    <div>
+                                        <h3>TechCorp MMC</h3>
+                                        <div class="company-rating">
+                                            <span class="stars">★★★★☆</span>
+                                            <span class="rating">4.8 (124 rəy)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="job-actions">
+                                    <button class="action-btn save-btn" id="saveJobBtn">
+                                        <i class="far fa-bookmark"></i>
+                                        Saxla
+                                    </button>
+                                    <button class="action-btn share-btn" id="shareJobBtn">
+                                        <i class="fas fa-share-alt"></i>
+                                        Paylaş
+                                    </button>
+                                    <a href="#apply" class="action-btn apply-btn">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Müraciət et
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="job-stats">
+                            <div class="stat">
+                                <i class="fas fa-eye"></i>
+                                <span>1,245 baxış</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>47 müraciət</span>
+                            </div>
+                            <div class="stat">
+                                <i class="far fa-clock"></i>
+                                <span>3 gün əvvəl</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JOB TAGS -->
+                    <div class="job-tags">
+                        <span class="job-tag featured">Featured</span>
+                        <span class="job-tag remote">Remote</span>
+                        <span class="job-tag urgent">Təcili</span>
+                        <span class="job-tag premium">Premium</span>
+                    </div>
+
+                    <!-- JOB DETAILS GRID -->
+                    <div class="job-details-grid">
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <span class="label">İş Növü</span>
+                                <span class="value">Tam ştat</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Ünvan</span>
+                                <span class="value">Bakı, Nizami küçəsi 123</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <div>
+                                <span class="label">Əmək Haqqı</span>
+                                <span class="value">₼ 2,000 - 3,000</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <span class="label">Təcrübə</span>
+                                <span class="value">3-5 il</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <span class="label">Təhsil</span>
+                                <span class="value">Ali təhsil</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <span class="label">Son Müraciət</span>
+                                <span class="value">15 Fevral 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JOB DESCRIPTION -->
+                    <div class="job-section">
+                        <h2>İş Haqqında</h2>
+                        <div class="job-description">
+                            <p>TechCorp MMC-də Frontend Developer kimi çalışmaq üçün peşəkar komandamıza qoşulun. Biz rəqəmsal transformasiya və innovativ texnoloji həllər üzrə aparıcı şirkətik.</p>
+                            
+                            <h3>Əsas Vəzifələr:</h3>
+                            <ul>
+                                <li>Müasir veb tətbiqlərin hazırlanması və dəstəklənməsi</li>
+                                <li>React və Vue.js framework-lərindən istifadə edərək interfeyslərin yaradılması</li>
+                                <li>Responsiv və istifadəçi dostu dizaynların həyata keçirilməsi</li>
+                                <li>Backend developerlər ilə əməkdaşlıq edərək API-lərin inteqrasiyası</li>
+                                <li>Kodun keyfiyyətinin və performansının təmin edilməsi</li>
+                                <li>Layihə zamanı texniki problemlərin həlli</li>
+                            </ul>
+
+                            <h3>Lazımı Bacarıqlar:</h3>
+                            <ul>
+                                <li>JavaScript, HTML5, CSS3 bilikləri</li>
+                                <li>React və/və ya Vue.js framework-ləri ilə iş təcrübəsi</li>
+                                <li>State management (Redux, Vuex) bilikləri</li>
+                                <li>RESTful API-lər ilə iş təcrübəsi</li>
+                                <li>Git version control sistemi</li>
+                                <li>İngilis dilində sərbəst danışmaq (arzuolunandır)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- REQUIREMENTS -->
+                    <div class="job-section">
+                        <h2>Tələblər</h2>
+                        <div class="requirements">
+                            <div class="requirement-category">
+                                <h3>Zəruri Tələblər:</h3>
+                                <ul>
+                                    <li>3 ildən çox Frontend development təcrübəsi</li>
+                                    <li>JavaScript və TypeScript bilikləri</li>
+                                    <li>React və/və ya Vue.js framework-ləri</li>
+                                    <li>Responsiv dizayn prinsipləri</li>
+                                    <li>Git version control sistemi</li>
+                                </ul>
+                            </div>
+                            <div class="requirement-category">
+                                <h3>Üstünlük Verilən Bacarıqlar:</h3>
+                                <ul>
+                                    <li>Next.js və ya Nuxt.js bilikləri</li>
+                                    <li>Testing framework-ləri (Jest, Cypress)</li>
+                                    <li>CI/CD prosesləri ilə tanışlıq</li>
+                                    <li>Cloud platformaları (AWS, Azure)</li>
+                                    <li>Agile/Scrum metodologiyaları</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BENEFITS -->
+                    <div class="job-section">
+                        <h2>İmtihanlar</h2>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <i class="fas fa-heartbeat"></i>
+                                <span>Sığorta</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>Yemək</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Təlim</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-car"></i>
+                                <span>Nəqliyyat</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-dumbbell"></i>
+                                <span>İdman</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-baby"></i>
+                                <span>Analıq məzuniyyəti</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Bonus</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-plane"></i>
+                                <span>Tətil</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- APPLICATION SECTION -->
+                    <div class="job-section" id="apply">
+                        <h2>Müraciət Et</h2>
+                        <div class="application-section">
+                            <div class="application-info">
+                                <h3>Bu vəzifəyə müraciət etmək üçün:</h3>
+                                <div class="application-steps">
+                                    <div class="step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <h4>Profilinizi Tamamlayın</h4>
+                                            <p>CV-nizi və portfolio-nuzu əlavə edin</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <h4>Müraciət Formunu Doldurun</h4>
+                                            <p>Əlavə məlumatlar və cover letter yazın</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <h4>Müsahibəyə Dəvət</h4>
+                                            <p>Uyğun namizədlər müsahibəyə dəvət olunacaq</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="application-actions">
+                                <button class="btn-primary apply-now-btn">
+                                    <i class="fas fa-paper-plane"></i>
+                                    İndi Müraciət Et
+                                </button>
+                                <p class="application-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    Müraciət etmək üçün <a href="login.html">daxil olun</a> və ya <a href="register.html">qeydiyyatdan keçin</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SIMILAR JOBS -->
+                    <div class="job-section">
+                        <h2>Oxşar Vəzifələr</h2>
+                        <div class="similar-jobs">
+                            <div class="similar-job-card">
+                                <h4>React Developer</h4>
+                                <div class="company">SoftTech Solutions</div>
+                                <div class="location">Bakı • Remote</div>
+                                <div class="salary">₼ 2,500 - 3,500</div>
+                            </div>
+                            <div class="similar-job-card">
+                                <h4>Vue.js Developer</h4>
+                                <div class="company">Creative Studio</div>
+                                <div class="location">Gəncə • Hybrid</div>
+                                <div class="salary">₼ 1,800 - 2,500</div>
+                            </div>
+                            <div class="similar-job-card">
+                                <h4>Full Stack Developer</h4>
+                                <div class="company">MarketPro</div>
+                                <div class="location">Bakı • Ofis</div>
+                                <div class="salary">₼ 3,000 - 4,000</div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- SIDEBAR -->
+                <aside class="job-sidebar">
+                    <!-- COMPANY CARD -->
+                    <div class="sidebar-card company-card">
+                        <div class="company-header">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="TechCorp MMC" class="company-logo">
+                            <div>
+                                <h3>TechCorp MMC</h3>
+                                <div class="company-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating">4.8 (124 rəy)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="company-info">
+                            <div class="info-item">
+                                <i class="fas fa-industry"></i>
+                                <span>IT & Texnologiya</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-users"></i>
+                                <span>101-500 işçi</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Bakı, Azərbaycan</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-globe"></i>
+                                <a href="#">techcorp.az</a>
+                            </div>
+                        </div>
+                        <div class="company-actions">
+                            <button class="btn-outline follow-company-btn">
+                                <i class="fas fa-plus"></i>
+                                Şirkəti İzlə
+                            </button>
+                            <a href="company-detail.html" class="btn-primary">
+                                Şirkətə Bax
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- QUICK ACTIONS -->
+                    <div class="sidebar-card quick-actions-card">
+                        <h3>Sürətli Hərəkətlər</h3>
+                        <div class="quick-actions">
+                            <button class="action-item">
+                                <i class="far fa-bookmark"></i>
+                                İşi Saxla
+                            </button>
+                            <button class="action-item">
+                                <i class="fas fa-share-alt"></i>
+                                Paylaş
+                            </button>
+                            <button class="action-item">
+                                <i class="fas fa-flag"></i>
+                                Şikayət et
+                            </button>
+                            <button class="action-item">
+                                <i class="fas fa-print"></i>
+                                Çap et
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- JOB SUMMARY -->
+                    <div class="sidebar-card summary-card">
+                        <h3>İş Xülasəsi</h3>
+                        <div class="summary-items">
+                            <div class="summary-item">
+                                <span class="label">Yerləşdirilib:</span>
+                                <span class="value">3 gün əvvəl</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Vakansiya:</span>
+                                <span class="value">F-2024-001</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Baxış sayı:</span>
+                                <span class="value">1,245</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Müraciət:</span>
+                                <span class="value">47</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Son müraciət:</span>
+                                <span class="value">15 Fev 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONTACT INFO -->
+                    <div class="sidebar-card contact-card">
+                        <h3>Əlaqə Məlumatı</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-user"></i>
+                                <div>
+                                    <span class="label">Əlaqə şəxsi</span>
+                                    <span class="value">Aygün Məmmədova</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span class="label">Email</span>
+                                    <a href="mailto:career@techcorp.az">career@techcorp.az</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <span class="label">Telefon</span>
+                                    <a href="tel:+994123456789">+994 12 345 67 89</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BizNet.az</h3>
+                    <p>Azərbaycanın ən etibarlı iş və biznes platforması.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Keçidlər</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Səhifə</a></li>
+                        <li><a href="jobs.html">İş Elanları</a></li>
+                        <li><a href="freelancers.html">Freelancerlar</a></li>
+                        <li><a href="companies.html">Şirkətlər</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Şirkət</h4>
+                    <ul>
+                        <li><a href="about.html">Haqqımızda</a></li>
+                        <li><a href="contact.html">Əlaqə</a></li>
+                        <li><a href="privacy.html">Məxfilik</a></li>
+                        <li><a href="terms.html">Qaydalar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Əlaqə</h4>
+                    <p><i class="fas fa-envelope"></i> info@biznet.az</p>
+                    <p><i class="fas fa-phone"></i> +994 12 345 67 89</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Bakı, Azərbaycan</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BizNet.az. Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="job-detail.js"></script>
+</body>
+</html>

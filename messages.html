@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesajlar - BizNet</title>
+    <link rel="stylesheet" href="messages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">BizNet</a>
+            </div>
+            <div class="nav-menu">
+                <a href="jobs.html" class="nav-link">İş Elanları</a>
+                <a href="freelancers.html" class="nav-link">Freelancerlar</a>
+                <a href="companies.html" class="nav-link">Şirkətlər</a>
+                <a href="messages.html" class="nav-link active">
+                    <i class="fas fa-envelope"></i>
+                    <span class="notification-badge">3</span>
+                </a>
+                <div class="user-menu">
+                    <div class="user-avatar" id="userAvatar">
+                        <img src="" alt="Profil" id="avatarImg">
+                        <span class="user-name" id="userName">İstifadəçi</span>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user"></i> Profilim
+                        </a>
+                        <a href="balance.html" class="dropdown-item">
+                            <i class="fas fa-wallet"></i> Balansım
+                        </a>
+                        <a href="messages.html" class="dropdown-item">
+                            <i class="fas fa-envelope"></i> Mesajlar
+                            <span class="badge">3</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Çıxış
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Messages Container -->
+    <div class="messages-container">
+        <!-- Sidebar - Conversations List -->
+        <div class="conversations-sidebar">
+            <div class="sidebar-header">
+                <h2>Mesajlar</h2>
+                <button class="new-chat-btn" id="newChatBtn">
+                    <i class="fas fa-plus"></i>
+                    Yeni Söhbət
+                </button>
+            </div>
+
+            <!-- Search -->
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchConversations" placeholder="Söhbət axtar...">
+            </div>
+
+            <!-- Conversations List -->
+            <div class="conversations-list" id="conversationsList">
+                <!-- Conversations will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="chat-area">
+            <!-- No Chat Selected -->
+            <div class="no-chat-selected" id="noChatSelected">
+                <div class="no-chat-content">
+                    <i class="fas fa-comments"></i>
+                    <h3>Söhbət seçin</h3>
+                    <p>Mövcud söhbətlərdən birini seçin və ya yeni söhbət başladın</p>
+                    <button class="btn-primary" onclick="startNewChat()">
+                        <i class="fas fa-plus"></i>
+                        Yeni Söhbət Başlat
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Chat -->
+            <div class="active-chat" id="activeChat" style="display: none;">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <div class="chat-partner-info">
+                        <div class="partner-avatar">
+                            <img id="partnerAvatar" src="" alt="Avatar">
+                            <span class="online-status" id="onlineStatus"></span>
+                        </div>
+                        <div class="partner-details">
+                            <h4 id="partnerName">Ad Soyad</h4>
+                            <span class="partner-type" id="partnerType">Freelancer</span>
+                        </div>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="action-btn" title="Zəng et">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="action-btn" title="Video zəng">
+                            <i class="fas fa-video"></i>
+                        </button>
+                        <button class="action-btn" title="Söhbət məlumatları">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Messages Container -->
+                <div class="messages-wrapper">
+                    <div class="messages-container-inner" id="messagesContainer">
+                        <!-- Messages will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span id="typingName">istifadəçi yazır...</span>
+                </div>
+
+                <!-- Message Input -->
+                <div class="message-input-container">
+                    <div class="input-actions">
+                        <button class="action-btn" id="attachFileBtn">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button class="action-btn" id="emojiBtn">
+                            <i class="fas fa-smile"></i>
+                        </button>
+                    </div>
+                    <div class="message-input-wrapper">
+                        <textarea 
+                            id="messageInput" 
+                            placeholder="Mesaj yazın..." 
+                            rows="1"
+                        ></textarea>
+                        <div class="file-preview" id="filePreview">
+                            <!-- File preview will be shown here -->
+                        </div>
+                    </div>
+                    <button class="send-btn" id="sendMessageBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar - Chat Info -->
+        <div class="chat-info-sidebar">
+            <div class="info-header">
+                <h3>Söhbət Məlumatları</h3>
+                <button class="close-info" id="closeInfoBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="info-content" id="chatInfoContent">
+                <!-- Chat info will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- New Chat Modal -->
+    <div class="modal" id="newChatModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Yeni Söhbət</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchUsers" placeholder="İstifadəçi axtar...">
+                </div>
+                
+                <div class="users-list" id="usersList">
+                    <!-- Users will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- File Upload Modal -->
+    <div class="modal" id="fileUploadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Fayl Yüklə</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-options">
+                    <div class="upload-option" data-type="image">
+                        <i class="fas fa-image"></i>
+                        <span>Şəkil</span>
+                    </div>
+                    <div class="upload-option" data-type="document">
+                        <i class="fas fa-file"></i>
+                        <span>Sənəd</span>
+                    </div>
+                    <div class="upload-option" data-type="other">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Digər</span>
+                    </div>
+                </div>
+                
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Faylı buraya sürüşdürün və ya klikləyin</p>
+                    <span>Maksimum 10MB</span>
+                    <input type="file" id="fileInput" style="display: none;">
+                </div>
+                
+                <div class="file-preview-modal" id="filePreviewModal">
+                    <!-- File preview will be shown here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-close">Ləğv et</button>
+                <button class="btn-primary" id="sendFileBtn">Göndər</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="messages.js"></script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancerlar - BizNet.az</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="freelancers.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>BizNet<span>.az</span></h2>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Səhifə</a></li>
+                    <li><a href="jobs.html">Bütün Elanlar</a></li>
+                    <li><a href="freelancers.html" class="active">Freelancerlar</a></li>
+                    <li><a href="companies.html">Şirkətlər</a></li>
+                    <li><a href="restaurants.html">Restoran/Market</a></li>
+                    <li><a href="post-job.html" class="post-job-btn">Elan Yerləşdir</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-auth">
+                <a href="login.html" class="login-btn">Giriş</a>
+                <a href="register.html" class="register-btn">Qeydiyyat</a>
+            </div>
+
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1>Peşəkar Freelancerlar</h1>
+                <p>500+ yüksək ixtisaslı freelancer - layihəniz üçün ən yaxşı mütəxəssislər</p>
+                
+                <div class="header-stats">
+                    <div class="stat">
+                        <span class="number">547</span>
+                        <span class="label">Aktiv Freelancer</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">1,248</span>
+                        <span class="label">Tamamlanmış İş</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">4.8</span>
+                        <span class="label">Orta Reyting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH & FILTERS -->
+    <section class="search-filters">
+        <div class="container">
+            <div class="filters-container">
+                <!-- SEARCH BOX -->
+                <div class="search-box">
+                    <div class="search-input-group">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="freelancerSearch" placeholder="Freelancer adı, ixtisas və ya bacarıq axtarın...">
+                        <button class="search-btn" onclick="freelancersSystem.applyFilters()">Axtar</button>
+                    </div>
+                </div>
+
+                <!-- QUICK FILTERS -->
+                <div class="quick-filters">
+                    <button class="filter-btn active" data-filter="all">Hamısı</button>
+                    <button class="filter-btn" data-filter="available">Mövcud</button>
+                    <button class="filter-btn" data-filter="premium">Premium</button>
+                    <button class="filter-btn" data-filter="top-rated">Yüksək Reytingli</button>
+                    <button class="filter-btn" data-filter="verified">Təsdiqlənmiş</button>
+                    <button class="filter-btn" data-filter="online">Onlayn</button>
+                </div>
+
+                <!-- ADVANCED FILTERS -->
+                <div class="advanced-filters">
+                    <div class="filter-group">
+                        <label>İxtisas</label>
+                        <select class="filter-select" id="categoryFilter">
+                            <option value="">Bütün ixtisaslar</option>
+                            <option value="web-development">Veb Development</option>
+                            <option value="mobile-development">Mobil Development</option>
+                            <option value="design">Dizayn</option>
+                            <option value="marketing">Marketinq</option>
+                            <option value="writing">Yazı & Tərcümə</option>
+                            <option value="video-photo">Video & Foto</option>
+                            <option value="business">Biznes</option>
+                            <option value="music-audio">Musiqi & Audio</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Şəhər</label>
+                        <select class="filter-select" id="locationFilter">
+                            <option value="">Bütün şəhərlər</option>
+                            <option value="baku">Bakı</option>
+                            <option value="ganja">Gəncə</option>
+                            <option value="sumqayit">Sumqayıt</option>
+                            <option value="lankaran">Lənkəran</option>
+                            <option value="remote">Uzaq İş</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Qiymət (saatlıq)</label>
+                        <select class="filter-select" id="priceFilter">
+                            <option value="">Hər hansı</option>
+                            <option value="0-20">₼ 20-dək</option>
+                            <option value="20-50">₼ 20-50</option>
+                            <option value="50-100">₼ 50-100</option>
+                            <option value="100+">₼ 100+</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Təcrübə</label>
+                        <select class="filter-select" id="experienceFilter">
+                            <option value="">Hər hansı</option>
+                            <option value="0">Yeni başlayan</option>
+                            <option value="1">1-3 il</option>
+                            <option value="3">3-5 il</option>
+                            <option value="5">5+ il</option>
+                        </select>
+                    </div>
+
+                    <button class="apply-filters-btn" onclick="freelancersSystem.applyFilters()">Filtrlə</button>
+                    <button class="reset-filters-btn" onclick="freelancersSystem.resetFilters()">Sıfırla</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREELANCERS LISTING -->
+    <section class="freelancers-listing">
+        <div class="container">
+            <div class="listing-container">
+                <!-- SIDEBAR FILTERS -->
+                <aside class="sidebar-filters">
+                    <div class="filters-header">
+                        <h3>Filterlər</h3>
+                        <button class="clear-filters" onclick="freelancersSystem.resetFilters()">Sıfırla</button>
+                    </div>
+
+                    <!-- Skills Filter -->
+                    <div class="filter-section">
+                        <h4>Bacarıqlar</h4>
+                        <div class="skills-filter">
+                            <input type="text" id="skillsSearch" placeholder="Bacarıq axtar..." onkeyup="freelancersSystem.searchSkills(this.value)">
+                            <div class="skills-list" id="skillsList">
+                                <!-- Skills will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hourly Rate Filter -->
+                    <div class="filter-section">
+                        <h4>Saxtlıq Qiymət</h4>
+                        <div class="range-slider">
+                            <input type="range" id="rateRange" min="0" max="200" value="200" class="slider">
+                            <div class="range-values">
+                                <span>₼ 0</span>
+                                <span id="rateValue">₼ 200</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="filter-section">
+                        <h4>Mövcudluq</h4>
+                        <div class="filter-options">
+                            <label class="checkbox">
+                                <input type="checkbox" value="full-time" checked>
+                                <span class="checkmark"></span>
+                                Tam ştat
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="part-time">
+                                <span class="checkmark"></span>
+                                Yarımştat
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="project-based">
+                                <span class="checkmark"></span>
+                                Layihə əsaslı
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Languages Filter -->
+                    <div class="filter-section">
+                        <h4>Dillər</h4>
+                        <div class="filter-options">
+                            <label class="checkbox">
+                                <input type="checkbox" value="azərbaycanca" checked>
+                                <span class="checkmark"></span>
+                                Azərbaycanca
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="ingiliscə">
+                                <span class="checkmark"></span>
+                                İngiliscə
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="rusca">
+                                <span class="checkmark"></span>
+                                Rusca
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="türkcə">
+                                <span class="checkmark"></span>
+                                Türkcə
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Verification Filter -->
+                    <div class="filter-section">
+                        <h4>Təsdiqləmə</h4>
+                        <div class="filter-options">
+                            <label class="checkbox">
+                                <input type="checkbox" value="email-verified">
+                                <span class="checkmark"></span>
+                                Email təsdiqli
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="phone-verified">
+                                <span class="checkmark"></span>
+                                Telefon təsdiqli
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="portfolio-verified">
+                                <span class="checkmark"></span>
+                                Portfolio təsdiqli
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="apply-filters-btn" onclick="freelancersSystem.applyFilters()">Filterləri Tətbiq Et</button>
+                </aside>
+
+                <!-- FREELANCERS GRID -->
+                <main class="freelancers-main">
+                    <div class="freelancers-header">
+                        <div class="results-info">
+                            <h3 id="resultsCount">547 freelancer tapıldı</h3>
+                            <p id="resultsFilter">Filterlər tətbiq olunmayıb</p>
+                        </div>
+                        <div class="sort-options">
+                            <label for="sortSelect">Çeşidlə:</label>
+                            <select class="sort-select" id="sortSelect" onchange="freelancersSystem.applyFilters()">
+                                <option value="newest">Ən yenilər</option>
+                                <option value="rating">Yüksək reyting</option>
+                                <option value="price-high">Yüksək qiymət</option>
+                                <option value="price-low">Aşağı qiymət</option>
+                                <option value="experience">Təcrübə</option>
+                                <option value="projects">Layihə sayı</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="freelancers-grid" id="freelancersGrid">
+                        <!-- Freelancers will be loaded here by JavaScript -->
+                    </div>
+
+                    <!-- PAGINATION -->
+                    <div class="pagination" id="pagination">
+                        <button class="page-btn prev-btn disabled">
+                            <i class="fas fa-chevron-left"></i> Əvvəlki
+                        </button>
+                        <div class="page-numbers">
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <span class="page-dots">...</span>
+                            <button class="page-btn">10</button>
+                        </div>
+                        <button class="page-btn next-btn">
+                            Növbəti <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREELANCER PROFILE MODAL -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content profile-modal">
+            <div class="modal-header">
+                <h3>Freelancer Profili</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="profile-header">
+                    <img src="" alt="" class="profile-avatar" id="modalAvatar">
+                    <div class="profile-info">
+                        <h2 id="modalName">Ad Soyad</h2>
+                        <p class="profile-title" id="modalTitle">İxtisas</p>
+                        <div class="profile-meta">
+                            <span class="rating" id="modalRating">
+                                <i class="fas fa-star"></i> 4.8
+                            </span>
+                            <span class="location" id="modalLocation">
+                                <i class="fas fa-map-marker-alt"></i> Bakı
+                            </span>
+                            <span class="status online" id="modalStatus">
+                                <i class="fas fa-circle"></i> Onlayn
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-tabs">
+                    <button class="tab-btn active" data-tab="about">Haqqında</button>
+                    <button class="tab-btn" data-tab="portfolio">Portfolio</button>
+                    <button class="tab-btn" data-tab="reviews">Rəylər</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="aboutTab">
+                        <div class="about-section">
+                            <h4>Haqqımda</h4>
+                            <p id="modalAbout">Haqqında məlumat...</p>
+                        </div>
+                        
+                        <div class="skills-section">
+                            <h4>Bacarıqlar</h4>
+                            <div class="skills-tags" id="modalSkills">
+                                <!-- Skills will be populated -->
+                            </div>
+                        </div>
+
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <div>
+                                    <strong>Saxtlıq Qiymət</strong>
+                                    <p id="modalHourlyRate">₼ 50-100</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-briefcase"></i>
+                                <div>
+                                    <strong>Təcrübə</strong>
+                                    <p id="modalExperience">5 il</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-globe"></i>
+                                <div>
+                                    <strong>Dillər</strong>
+                                    <p id="modalLanguages">Azərbaycanca, İngiliscə</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <strong>Təsdiqləmə</strong>
+                                    <p id="modalVerification">Email, Telefon</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="portfolioTab">
+                        <div class="portfolio-grid">
+                            <!-- Portfolio items will be populated -->
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="reviewsTab">
+                        <div class="reviews-list">
+                            <!-- Reviews will be populated -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-actions">
+                    <button class="btn-primary" onclick="openContactModal()">
+                        <i class="fas fa-envelope"></i>
+                        Əlaqə Saxla
+                    </button>
+                    <button class="btn-secondary" onclick="saveFreelancer()">
+                        <i class="fas fa-bookmark"></i>
+                        Yadda Saxla
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Freelancerla Əlaqə</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Layihə Haqqında</label>
+                        <textarea placeholder="Layihənizi təsvir edin..." rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Büdcə</label>
+                        <select required>
+                            <option value="">Büdcə seçin</option>
+                            <option value="0-500">₼ 500-dək</option>
+                            <option value="500-1000">₼ 500-1000</option>
+                            <option value="1000-5000">₼ 1000-5000</option>
+                            <option value="5000+">₼ 5000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Müddət</label>
+                        <select required>
+                            <option value="">Müddət seçin</option>
+                            <option value="1-week">1 həftə</option>
+                            <option value="2-weeks">2 həftə</option>
+                            <option value="1-month">1 ay</option>
+                            <option value="2-months">2 ay+</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">Mesaj Göndər</button>
+                        <button type="button" class="cancel-btn" onclick="closeContactModal()">Ləğv Et</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BizNet.az</h3>
+                    <p>Azərbaycanın ən etibarlı iş və biznes platforması.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Keçidlər</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Səhifə</a></li>
+                        <li><a href="jobs.html">İş Elanları</a></li>
+                        <li><a href="freelancers.html">Freelancerlar</a></li>
+                        <li><a href="companies.html">Şirkətlər</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Şirkət</h4>
+                    <ul>
+                        <li><a href="about.html">Haqqımızda</a></li>
+                        <li><a href="contact.html">Əlaqə</a></li>
+                        <li><a href="privacy.html">Məxfilik</a></li>
+                        <li><a href="terms.html">Qaydalar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Əlaqə</h4>
+                    <p><i class="fas fa-envelope"></i> info@biznet.az</p>
+                    <p><i class="fas fa-phone"></i> +994 12 345 67 89</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Bakı, Azərbaycan</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BizNet.az. Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="freelancers.js"></script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qeydiyyat - BizNet.az</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>BizNet<span>.az</span></h2>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Səhifə</a></li>
+                    <li><a href="jobs.html">Bütün Elanlar</a></li>
+                    <li><a href="freelancers.html">Freelancerlar</a></li>
+                    <li><a href="companies.html">Şirkətlər</a></li>
+                    <li><a href="restaurants.html">Restoran/Market</a></li>
+                    <li><a href="post-job.html" class="post-job-btn">Elan Yerləşdir</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-auth">
+                <a href="login.html" class="login-btn">Giriş</a>
+                <a href="register.html" class="register-btn active">Qeydiyyat</a>
+            </div>
+
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- AUTH SECTION -->
+    <section class="auth-section">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Hesab Yarat</h1>
+                    <p>Biznesinə və ya karyerana start ver</p>
+                </div>
+
+                <!-- USER TYPE SELECTION -->
+                <div class="user-type-selection">
+                    <div class="user-type-tabs">
+                        <button class="user-type-tab active" data-user-type="freelancer">
+                            <span class="tab-icon">👨‍💻</span>
+                            <span class="tab-text">Freelancer</span>
+                        </button>
+                        <button class="user-type-tab" data-user-type="business">
+                            <span class="tab-icon">🏢</span>
+                            <span class="tab-text">Biznes</span>
+                        </button>
+                        <button class="user-type-tab" data-user-type="client">
+                            <span class="tab-icon">👥</span>
+                            <span class="tab-text">Müştəri</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-type-info" id="userTypeInfo">
+                        <div class="info-icon">💼</div>
+                        <div class="info-content">
+                            <h4>Freelancer Qeydiyyatı</h4>
+                            <p>Xidmətlərinizi təqdim edin, layihələr qazanın və qazanc əldə edin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REGISTER FORM -->
+                <form class="auth-form" id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Ad</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Adınız" required>
+                            <div class="error-message" id="firstNameError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Soyad</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Soyadınız" required>
+                            <div class="error-message" id="lastNameError"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email ünvanı</label>
+                        <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefon nömrəsi</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+994 __ ___ __ __" required>
+                        <div class="error-message" id="phoneError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Şifrə</label>
+                        <div class="password-input">
+                            <input type="password" id="password" name="password" placeholder="Şifrə yaradın" required minlength="6">
+                            <button type="button" class="toggle-password" id="togglePassword">👁️</button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill" id="strengthFill"></div>
+                            </div>
+                            <span class="strength-text" id="strengthText">Zəif</span>
+                        </div>
+                        <div class="error-message" id="passwordError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Şifrəni təsdiqlə</label>
+                        <div class="password-input">
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Şifrəni təkrar daxil edin" required minlength="6">
+                            <button type="button" class="toggle-password" id="toggleConfirmPassword">👁️</button>
+                        </div>
+                        <div class="error-message" id="confirmPasswordError"></div>
+                    </div>
+
+                    <!-- BUSINESS SPECIFIC FIELDS -->
+                    <div class="business-fields" id="businessFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="companyName">Şirkət adı</label>
+                            <input type="text" id="companyName" name="companyName" placeholder="Şirkətinizin adı">
+                            <div class="error-message" id="companyNameError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="companyType">Şirkət növü</label>
+                            <select id="companyType" name="companyType">
+                                <option value="">Seçin</option>
+                                <option value="restaurant">Restoran</option>
+                                <option value="market">Market</option>
+                                <option value="tech">Texnologiya</option>
+                                <option value="finance">Maliyyə</option>
+                                <option value="education">Təhsil</option>
+                                <option value="other">Digər</option>
+                            </select>
+                            <div class="error-message" id="companyTypeError"></div>
+                        </div>
+                    </div>
+
+                    <!-- FREELANCER SPECIFIC FIELDS -->
+                    <div class="freelancer-fields" id="freelancerFields">
+                        <div class="form-group">
+                            <label for="profession">İxtisas</label>
+                            <select id="profession" name="profession">
+                                <option value="">İxtisasınızı seçin</option>
+                                <option value="web-development">Veb Development</option>
+                                <option value="mobile-development">Mobil Development</option>
+                                <option value="graphic-design">Qrafik Dizayn</option>
+                                <option value="ui-ux">UI/UX Dizayn</option>
+                                <option value="digital-marketing">Digital Marketinq</option>
+                                <option value="content-writing">Məzmun Yazılışı</option>
+                                <option value="translation">Tərcümə</option>
+                                <option value="video-editing">Video Montaj</option>
+                                <option value="other">Digər</option>
+                            </select>
+                            <div class="error-message" id="professionError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Təcrübə</label>
+                            <select id="experience" name="experience">
+                                <option value="">Təcrübənizi seçin</option>
+                                <option value="0-1">0-1 il</option>
+                                <option value="1-3">1-3 il</option>
+                                <option value="3-5">3-5 il</option>
+                                <option value="5+">5+ il</option>
+                            </select>
+                            <div class="error-message" id="experienceError"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                            <span class="checkmark"></span>
+                            <span class="checkbox-text">
+                                <a href="terms.html" target="_blank">İstifadəçi razılaşmasını</a> və 
+                                <a href="privacy.html" target="_blank">Məxfilik siyasətini</a> oxudum və qəbul edirəm
+                            </span>
+                        </label>
+                        <div class="error-message" id="termsError"></div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <span class="checkmark"></span>
+                            Xüsusi təkliflər və yeniliklər haqqında məlumat almaq istəyirəm
+                        </label>
+                    </div>
+
+                    <button type="submit" class="auth-submit-btn">
+                        <span class="btn-text">Hesab Yarat</span>
+                        <span class="btn-loader" style="display: none;">⏳</span>
+                    </button>
+                </form>
+
+                <!-- SOCIAL REGISTER -->
+                <div class="social-login">
+                    <div class="divider">
+                        <span>və ya</span>
+                    </div>
+
+                    <div class="social-buttons">
+                        <button class="social-btn google-btn" onclick="socialRegister('google')">
+                            <span class="social-icon">🔍</span>
+                            <span class="social-text">Google ilə qeydiyyat</span>
+                        </button>
+                        
+                        <button class="social-btn facebook-btn" onclick="socialRegister('facebook')">
+                            <span class="social-icon">📘</span>
+                            <span class="social-text">Facebook ilə qeydiyyat</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- LOGIN LINK -->
+                <div class="auth-footer">
+                    <p>Artıq hesabın var? <a href="login.html">Giriş et</a></p>
+                </div>
+            </div>
+
+            <!-- AUTH SIDEBAR -->
+            <div class="auth-sidebar">
+                <div class="sidebar-content">
+                    <h2>BizNet.az Üstünlükləri</h2>
+                    <p>Platformamızın güclü tərəflərini kəşf edin</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">🚀</span>
+                            <div class="feature-content">
+                                <h4>Sürətli Qeydiyyat</h4>
+                                <p>2 dəqiqə ərzində hesab yaradın</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <span class="feature-icon">💼</span>
+                            <div class="feature-content">
+                                <h4>Freelancerlar üçün</h4>
+                                <p>Pulsuz elan, 15% komissiya</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <span class="feature-icon">🏢</span>
+                            <div class="feature-content">
+                                <h4>Bizneslər üçün</h4>
+                                <p>Sərfəli abunəlik planları</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <span class="feature-icon">🛡️</span>
+                            <div class="feature-content">
+                                <h4>Təhlükəsiz Ödəniş</h4>
+                                <p>Bank kartı və elektron ödəniş</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">📞</span>
+                            <div class="feature-content">
+                                <h4>24/7 Dəstək</h4>
+                                <p>Hər zaman sizinləyik</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">💸</span>
+                            <div class="feature-content">
+                                <h4>Asan Pul Çıxarışı</h4>
+                                <p>Kart və elektron kisələr</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-preview">
+                        <h4>Gəlir Modeli</h4>
+                        <div class="pricing-items">
+                            <div class="pricing-item">
+                                <span class="pricing-icon">👨‍💻</span>
+                                <span class="pricing-text">Freelancer: 15% komissiya</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="pricing-icon">🏢</span>
+                                <span class="pricing-text">Biznes: Aylıq abunəlik</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="pricing-icon">🚀</span>
+                                <span class="pricing-text">Premium: Elan başına</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BizNet.az</h3>
+                    <p>Azərbaycanın ən etibarlı iş və biznes platforması.</p>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">📷</a>
+                        <a href="#">💼</a>
+                        <a href="#">🐦</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Keçidlər</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Səhifə</a></li>
+                        <li><a href="jobs.html">İş Elanları</a></li>
+                        <li><a href="freelancers.html">Freelancerlar</a></li>
+                        <li><a href="companies.html">Şirkətlər</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Şirkət</h4>
+                    <ul>
+                        <li><a href="about.html">Haqqımızda</a></li>
+                        <li><a href="contact.html">Əlaqə</a></li>
+                        <li><a href="privacy.html">Məxfilik</a></li>
+                        <li><a href="terms.html">Qaydalar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Əlaqə</h4>
+                    <p>📧 info@biznet.az</p>
+                    <p>📞 +994 12 345 67 89</p>
+                    <p>📍 Bakı, Azərbaycan</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BizNet.az. Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="auth.js"></script>
+    <script src="register.js"></script>
+</body>
+</html>

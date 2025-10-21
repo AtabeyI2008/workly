@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Müraciət Et - Frontend Developer - BizNet.az</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="apply.css">
+    <link rel="stylesheet" href="stle.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>BizNet<span>.az</span></h2>
+                </div>
+                
+                <nav class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Ana Səhifə</a></li>
+                        <li><a href="jobs.html">Bütün Elanlar</a></li>
+                        <li><a href="freelancers.html">Freelancerlar</a></li>
+                        <li><a href="companies.html">Şirkətlər</a></li>
+                        <li><a href="restaurants.html">Restoran/Market</a></li>
+                        <li><a href="post-job.html" class="post-job-btn">Elan Yerləşdir</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-auth">
+                    <div class="user-profile">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profil" class="user-avatar">
+                        <span class="user-name">İlkin Məmmədov</span>
+                    </div>
+                </div>
+
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Ana Səhifə</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="jobs.html">İş Elanları</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="job-detail.html?id=1">Frontend Developer</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Müraciət Et</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="apply-section">
+        <div class="container">
+            <div class="apply-container">
+                <!-- JOB SUMMARY -->
+                <div class="job-summary-card">
+                    <div class="job-header">
+                        <h1>Frontend Developer</h1>
+                        <div class="company-info">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="TechCorp MMC" class="company-logo">
+                            <div>
+                                <h3>TechCorp MMC</h3>
+                                <div class="job-meta">
+                                    <span class="location">Bakı</span>
+                                    <span class="type">Tam ştat</span>
+                                    <span class="salary">₼ 2,000 - 3,000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="application-deadline">
+                        <i class="fas fa-clock"></i>
+                        <span>Son müraciət tarixi: <strong>15 Fevral 2024</strong></span>
+                    </div>
+                </div>
+
+                <div class="apply-content">
+                    <!-- APPLICATION FORM -->
+                    <main class="application-form-section">
+                        <div class="form-header">
+                            <h2>Müraciət Formu</h2>
+                            <p>Aşağıdakı formu dolduraraq bu vəzifəyə müraciət edin</p>
+                        </div>
+
+                        <form id="applicationForm" class="application-form">
+                            <!-- PERSONAL INFORMATION -->
+                            <div class="form-section">
+                                <h3>Şəxsi Məlumatlar</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="firstName">Ad *</label>
+                                        <input type="text" id="firstName" name="firstName" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Soyad *</label>
+                                        <input type="text" id="lastName" name="lastName" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" id="email" name="email" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Telefon *</label>
+                                        <input type="tel" id="phone" name="phone" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="birthDate">Doğum Tarixi</label>
+                                        <input type="date" id="birthDate" name="birthDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="location">Yaşadığınız Şəhər *</label>
+                                        <select id="location" name="location" required>
+                                            <option value="">Seçin</option>
+                                            <option value="baku">Bakı</option>
+                                            <option value="ganja">Gəncə</option>
+                                            <option value="sumgait">Sumqayıt</option>
+                                            <option value="lankaran">Lənkəran</option>
+                                            <option value="other">Digər</option>
+                                        </select>
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PROFESSIONAL INFORMATION -->
+                            <div class="form-section">
+                                <h3>Peşəkar Məlumatlar</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="currentPosition">Cari Vəzifə</label>
+                                        <input type="text" id="currentPosition" name="currentPosition">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="currentCompany">Cari Şirkət</label>
+                                        <input type="text" id="currentCompany" name="currentCompany">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="experience">Ümumi Təcrübə (il) *</label>
+                                        <select id="experience" name="experience" required>
+                                            <option value="">Seçin</option>
+                                            <option value="0-1">0-1 il</option>
+                                            <option value="1-3">1-3 il</option>
+                                            <option value="3-5">3-5 il</option>
+                                            <option value="5-10">5-10 il</option>
+                                            <option value="10+">10+ il</option>
+                                        </select>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="education">Təhsil Səviyyəsi *</label>
+                                        <select id="education" name="education" required>
+                                            <option value="">Seçin</option>
+                                            <option value="secondary">Orta təhsil</option>
+                                            <option value="bachelor">Bakalavr</option>
+                                            <option value="master">Magistr</option>
+                                            <option value="phd">PhD</option>
+                                        </select>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label for="skills">Bacarıqlar (vergüllə ayırın) *</label>
+                                        <input type="text" id="skills" name="skills" placeholder="Məsələn: JavaScript, React, HTML, CSS" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- DOCUMENTS -->
+                            <div class="form-section">
+                                <h3>Sənədlər</h3>
+                                <div class="form-grid">
+                                    <div class="form-group full-width">
+                                        <label for="cv">CV Yüklə *</label>
+                                        <div class="file-upload">
+                                            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+                                            <label for="cv" class="file-upload-label">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                                <span>CV faylını seçin (PDF, DOC, DOCX)</span>
+                                            </label>
+                                            <div class="file-info" id="cvFileInfo"></div>
+                                        </div>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label for="coverLetter">Cover Letter</label>
+                                        <textarea id="coverLetter" name="coverLetter" rows="6" placeholder="Niyə bu vəzifəyə müraciət etdiyinizi və sizi niyə seçmələri lazım olduğunu qısaca izah edin..."></textarea>
+                                        <div class="char-count">
+                                            <span id="coverLetterCount">0</span> / 2000 karakter
+                                        </div>
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label for="portfolio">Portfolio Linki (varsa)</label>
+                                        <input type="url" id="portfolio" name="portfolio" placeholder="https://">
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label for="linkedin">LinkedIn Profili (varsa)</label>
+                                        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ADDITIONAL QUESTIONS -->
+                            <div class="form-section">
+                                <h3>Əlavə Suallar</h3>
+                                <div class="form-grid">
+                                    <div class="form-group full-width">
+                                        <label for="availability">Nə vaxt işə başlaya bilərsiniz? *</label>
+                                        <select id="availability" name="availability" required>
+                                            <option value="">Seçin</option>
+                                            <option value="immediately">Dərhal</option>
+                                            <option value="1week">1 həftə ərzində</option>
+                                            <option value="2weeks">2 həftə ərzində</option>
+                                            <option value="1month">1 ay ərzində</option>
+                                            <option value="negotiable">Müzakirə oluna bilər</option>
+                                        </select>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label for="salaryExpectation">Əmək Haqqı Gözləntiniz (₼) *</label>
+                                        <input type="number" id="salaryExpectation" name="salaryExpectation" min="0" step="100" placeholder="Məsələn: 2500" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label for="reference">Sizi hardan eşitdiniz? *</label>
+                                        <select id="reference" name="reference" required>
+                                            <option value="">Seçin</option>
+                                            <option value="biznet">BizNet.az</option>
+                                            <option value="linkedin">LinkedIn</option>
+                                            <option value="friend">Dost/Tanış</option>
+                                            <option value="social">Sosial Media</option>
+                                            <option value="other">Digər</option>
+                                        </select>
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TERMS AND SUBMIT -->
+                            <div class="form-section">
+                                <div class="form-group full-width checkbox-group">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms">
+                                        <a href="privacy.html">Məxfilik Siyasətini</a> və 
+                                        <a href="terms.html">İstifadə Qaydalarını</a> oxudum və qəbul edirəm *
+                                    </label>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="form-group full-width checkbox-group">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <label for="newsletter">BizNet.az-dan xəbərlər və yeni iş elanları haqqında məlumat almaq istəyirəm</label>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn-secondary" onclick="history.back()">
+                                        <i class="fas fa-arrow-left"></i>
+                                        Geri
+                                    </button>
+                                    <button type="submit" class="btn-primary" id="submitBtn">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Müraciəti Göndər
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </main>
+
+                    <!-- SIDEBAR -->
+                    <aside class="application-sidebar">
+                        <!-- APPLICATION PROGRESS -->
+                        <div class="sidebar-card progress-card">
+                            <h3>Müraciət Prosesi</h3>
+                            <div class="progress-steps">
+                                <div class="step active">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Müraciət Formu</h4>
+                                        <p>Formu doldur və göndər</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Ərizə Baxılması</h4>
+                                        <p>Şirkət ərizəni nəzərdən keçirir</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Müsahibə</h4>
+                                        <p>Uyğun namizədlər müsahibəyə dəvət olunur</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Qərar</h4>
+                                        <p>Son qəbar bildirilir</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TIPS CARD -->
+                        <div class="sidebar-card tips-card">
+                            <h3>Müraciət Üçün İpuçları</h3>
+                            <div class="tips-list">
+                                <div class="tip-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>CV-nizi yeniləyin və uyğunlaşdırın</span>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Cover letter yazarkən spesifik olun</span>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Bacarıqlarınızı aydın göstərin</span>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Doğru və tam məlumatlar verin</span>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Maaş gözləntinizi real təyin edin</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CONTACT INFO -->
+                        <div class="sidebar-card contact-card">
+                            <h3>Əlaqə Məlumatı</h3>
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fas fa-building"></i>
+                                    <div>
+                                        <span class="label">Şirkət</span>
+                                        <span class="value">TechCorp MMC</span>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-user"></i>
+                                    <div>
+                                        <span class="label">Əlaqə şəxsi</span>
+                                        <span class="value">Aygün Məmmədova</span>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <span class="label">Email</span>
+                                        <a href="mailto:career@techcorp.az">career@techcorp.az</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STATS CARD -->
+                        <div class="sidebar-card stats-card">
+                            <h3>Statistika</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-number">47</span>
+                                    <span class="stat-label">Müraciət</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">1,245</span>
+                                    <span class="stat-label">Baxış</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">8</span>
+                                    <span class="stat-label">Gün qalıb</span>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BizNet.az</h3>
+                    <p>Azərbaycanın ən etibarlı iş və biznes platforması.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Keçidlər</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Səhifə</a></li>
+                        <li><a href="jobs.html">İş Elanları</a></li>
+                        <li><a href="freelancers.html">Freelancerlar</a></li>
+                        <li><a href="companies.html">Şirkətlər</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Şirkət</h4>
+                    <ul>
+                        <li><a href="about.html">Haqqımızda</a></li>
+                        <li><a href="contact.html">Əlaqə</a></li>
+                        <li><a href="privacy.html">Məxfilik</a></li>
+                        <li><a href="terms.html">Qaydalar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Əlaqə</h4>
+                    <p><i class="fas fa-envelope"></i> info@biznet.az</p>
+                    <p><i class="fas fa-phone"></i> +994 12 345 67 89</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Bakı, Azərbaycan</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BizNet.az. Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SUCCESS MODAL -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Müraciətiniz Göndərildi!</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p>Müraciətiniz uğurla göndərildi. Şirkət ərizənizi nəzərdən keçirdikdən sonra sizinlə əlaqə saxlayacaq.</p>
+                <div class="application-details">
+                    <div class="detail-item">
+                        <span class="label">Müraciət Nömrəsi:</span>
+                        <span class="value" id="applicationNumber">APP-2024-001</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Göndərildi:</span>
+                        <span class="value" id="applicationDate">15 Yanvar 2024, 14:30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="viewApplicationBtn">Müraciətə Bax</button>
+                <button class="btn-secondary" id="closeModalBtn">Bağla</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="apply.js"></script>
+</body>
+</html>

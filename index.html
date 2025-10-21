@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizNet.az - İş, Freelancer & Biznes Platforması</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>BizNet<span>.az</span></h2>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Ana Səhifə</a></li>
+                    <li><a href="jobs.html">Bütün Elanlar</a></li>
+                    <li><a href="freelancers.html">Freelancerlar</a></li>
+                    <li><a href="companies.html">Şirkətlər</a></li>
+                    <li><a href="restaurants.html">Restoran/Market</a></li>
+                    <li><a href="post-job.html" class="post-job-btn">Elan Yerləşdir</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-auth">
+                <a href="login.html" class="login-btn">Giriş</a>
+                <a href="login.html" class="register-btn">Qeydiyyat</a>
+            </div>
+
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Axtardığın İşi Tap</span>
+                    <br>Və ya <span class="gradient-text">İşçini Tap</span>
+                </h1>
+                <p class="hero-subtitle">Azərbaycanın ən böyük iş, freelancer və biznes platforması. 
+                <br>1000-dən çox şirkət və freelancer səni gözləyir.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>1,200+</h3>
+                        <p>Aktiv Elan</p>
+                    </div>
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Freelancer</p>
+                    </div>
+                    <div class="stat">
+                        <h3>300+</h3>
+                        <p>Şirkət</p>
+                    </div>
+                    <div class="stat">
+                        <h3>95%</h3>
+                        <p>Uğur Nisbəti</p>
+                    </div>
+                </div>
+
+                <!-- AXTARIŞ PANELİ -->
+                <div class="search-panel">
+                    <div class="search-tabs">
+                        <button class="tab-btn active" data-tab="all">Hamısı</button>
+                        <button class="tab-btn" data-tab="jobs">İş Elanları</button>
+                        <button class="tab-btn" data-tab="freelancers">Freelancerlar</button>
+                        <button class="tab-btn" data-tab="companies">Şirkətlər</button>
+                        <button class="tab-btn" data-tab="restaurants">Restoran/Market</button>
+                    </div>
+
+                    <div class="search-form">
+                        <div class="search-input-group">
+                            <input type="text" placeholder="Nə axtarırsan? (məs: veb dizayner, aşpaz, menecer)" class="search-input">
+                            <select class="search-select">
+                                <option value="">Kateqoriya seç</option>
+                                <option value="design">Dizayn</option>
+                                <option value="development">Proqramlaşdırma</option>
+                                <option value="marketing">Marketinq</option>
+                                <option value="restaurant">Restoran</option>
+                                <option value="retail">Pərakəndə</option>
+                            </select>
+                            <select class="search-select">
+                                <option value="">Şəhər seç</option>
+                                <option value="baku">Bakı</option>
+                                <option value="ganja">Gəncə</option>
+                                <option value="sumgait">Sumqayıt</option>
+                                <option value="lankaran">Lənkəran</option>
+                                <option value="naxcivan">Naxçıvan</option>
+                                <option value="qarabağ">Qarabağ</option>
+                                <option value="mingeçevir">Mingeçevir</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                            <button class="search-btn">Axtar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="floating-card card1">
+                    <div class="card-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Freelancer">
+                        <div>
+                            <h4>Əli Məmmədov</h4>
+                            <p>Veb Developer</p>
+                        </div>
+                    </div>
+                    <p>⭐ 4.9 (47 rəy)</p>
+                    <span class="price">₼ 50/saat</span>
+                </div>
+                
+                <div class="floating-card card2">
+                    <div class="card-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="Şirkət">
+                        <div>
+                            <h4>TechCorp</h4>
+                            <p>IT Şirkəti</p>
+                        </div>
+                    </div>
+                    <p>🚀 10 açıq vəzifə</p>
+                    <span class="tag">Premium</span>
+                </div>
+                
+                <div class="floating-card card3">
+                    <div class="card-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/878/878052.png" alt="Restoran">
+                        <div>
+                            <h4>Lezzet Restoran</h4>
+                            <p>Türk mətbəxi</p>
+                        </div>
+                    </div>
+                    <p>👨‍🍳 Aşpaz axtarır</p>
+                    <span class="salary">₼ 800-1200</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KATEQORİYALAR -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Kateqoriyalar</h2>
+            <p class="section-subtitle">İxtisasın və ya marağın olan sahəni seç</p>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">💼</div>
+                    <h3>İş Elanları</h3>
+                    <p>Tam və yarımştat işlər</p>
+                    <span class="count">450+ elan</span>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">👨‍💻</div>
+                    <h3>Freelancerlar</h3>
+                    <p>Xidmət və layihələr</p>
+                    <span class="count">280+ freelancer</span>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">🏢</div>
+                    <h3>Şirkətlər</h3>
+                    <p>Korporativ karyera</p>
+                    <span class="count">150+ şirkət</span>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">🍽️</div>
+                    <h3>Restoranlar</h3>
+                    <p>Qastronomiya sahəsi</p>
+                    <span class="count">120+ restoran</span>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">🛒</div>
+                    <h3>Marketlər</h3>
+                    <p>Pərakəndə satış</p>
+                    <span class="count">80+ market</span>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">🚀</div>
+                    <h3>Startup</h3>
+                    <p>Yenilikçi layihələr</p>
+                    <span class="count">60+ startup</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPULAR ELANLAR -->
+    <section class="featured-jobs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Populyar Elanlar</h2>
+                <a href="jobs.html" class="view-all">Hamısını gör →</a>
+            </div>
+            
+            <div class="jobs-grid">
+                <!-- Elanlar burada dinamik olaraq yüklənəcək -->
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-us">
+        <div class="container">
+            <h2 class="section-title">Niyə BizNet?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Ən Yaxşı Qiymət</h3>
+                    <p>Freelancerlar üçün pulsuz, şirkətlər üçün sərfəli abunəliklər</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Sürətli Tap</h3>
+                    <p>3 dəqiqə ərzində axtardığın işi və ya işçini tap</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Təhlükəsiz Ödəniş</h3>
+                    <p>Bank kartı və elektron ödəniş sistemləri</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3>24/7 Dəstək</h3>
+                    <p>Hər zaman səninləyik, problemlərini həll edirik</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BizNet.az</h3>
+                    <p>Azərbaycanın ən etibarlı iş və biznes platforması. Hər kəs üçün imkanlar yaradırıq.</p>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">📷</a>
+                        <a href="#">💼</a>
+                        <a href="#">🐦</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Keçidlər</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Səhifə</a></li>
+                        <li><a href="jobs.html">İş Elanları</a></li>
+                        <li><a href="freelancers.html">Freelancerlar</a></li>
+                        <li><a href="companies.html">Şirkətlər</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Şirkət</h4>
+                    <ul>
+                        <li><a href="about.html">Haqqımızda</a></li>
+                        <li><a href="contact.html">Əlaqə</a></li>
+                        <li><a href="privacy.html">Məxfilik</a></li>
+                        <li><a href="terms.html">Qaydalar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Əlaqə</h4>
+                    <p>📧 info@biznet.az</p>
+                    <p>📞 +994 12 345 67 89</p>
+                    <p>📍 Bakı, Azərbaycan</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BizNet.az. Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

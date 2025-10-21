@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abunəlik Planları - BizNet</title>
+    <link rel="stylesheet" href="pricing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">BizNet</a>
+            </div>
+            <div class="nav-menu">
+                <a href="jobs.html" class="nav-link">İş Elanları</a>
+                <a href="freelancers.html" class="nav-link">Freelancerlar</a>
+                <a href="companies.html" class="nav-link">Şirkətlər</a>
+                <a href="messages.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span class="notification-badge">3</span>
+                </a>
+                <div class="user-menu">
+                    <div class="user-avatar" id="userAvatar">
+                        <img src="" alt="Profil" id="avatarImg">
+                        <span class="user-name" id="userName">İstifadəçi</span>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user"></i> Profilim
+                        </a>
+                        <a href="balance.html" class="dropdown-item">
+                            <i class="fas fa-wallet"></i> Balansım
+                        </a>
+                        <a href="messages.html" class="dropdown-item">
+                            <i class="fas fa-envelope"></i> Mesajlar
+                            <span class="badge">3</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Çıxış
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pricing Container -->
+    <div class="pricing-container">
+        <div class="pricing-header">
+            <h1>Abunəlik Planları</h1>
+            <p>Biznesinizi növbəti səviyyəyə qaldırın</p>
+            
+            <!-- Billing Toggle -->
+            <div class="billing-toggle">
+                <span>Aylıq</span>
+                <label class="switch">
+                    <input type="checkbox" id="yearlyBilling">
+                    <span class="slider"></span>
+                </label>
+                <span>İllik <span class="discount-badge">20% qənaət</span></span>
+            </div>
+        </div>
+
+        <!-- Plans Comparison -->
+        <div class="plans-comparison">
+            <div class="plan-card basic">
+                <div class="plan-header">
+                    <h3>Basic</h3>
+                    <div class="plan-price">
+                        <span class="price" id="basicPrice">10</span>
+                        <span class="currency">AZN</span>
+                        <span class="period">/ay</span>
+                    </div>
+                    <p class="plan-description">Kiçik bizneslər üçün ideal</p>
+                </div>
+                
+                <div class="plan-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span><strong>3 elan</strong> eyni vaxtda</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Standart görünüş</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Əsas axtarışda göstərilmə</span>
+                    </div>
+                    <div class="feature-item disabled">
+                        <i class="fas fa-times"></i>
+                        <span>Şəkil yükləmə</span>
+                    </div>
+                    <div class="feature-item disabled">
+                        <i class="fas fa-times"></i>
+                        <span>Logo əlavəsi</span>
+                    </div>
+                    <div class="feature-item disabled">
+                        <i class="fas fa-times"></i>
+                        <span>Axtarışda üst sıralar</span>
+                    </div>
+                    <div class="feature-item disabled">
+                        <i class="fas fa-times"></i>
+                        <span>Əsas səhifədə reklam</span>
+                    </div>
+                </div>
+
+                <button class="plan-btn basic-btn" onclick="selectPlan('basic')">
+                    Seç
+                </button>
+            </div>
+
+            <div class="plan-card pro featured">
+                <div class="popular-badge">Ən Populer</div>
+                <div class="plan-header">
+                    <h3>Pro</h3>
+                    <div class="plan-price">
+                        <span class="price" id="proPrice">25</span>
+                        <span class="currency">AZN</span>
+                        <span class="period">/ay</span>
+                    </div>
+                    <p class="plan-description">Orta bizneslər üçün mükəmməl</p>
+                </div>
+                
+                <div class="plan-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span><strong>10 elan</strong> eyni vaxtda</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Standart görünüş</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Əsas axtarışda göstərilmə</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>5 şəkil yükləmə</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Logo əlavəsi</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Axtarışda üst sıralar</span>
+                    </div>
+                    <div class="feature-item disabled">
+                        <i class="fas fa-times"></i>
+                        <span>Əsas səhifədə reklam</span>
+                    </div>
+                </div>
+
+                <button class="plan-btn pro-btn" onclick="selectPlan('pro')">
+                    Seç
+                </button>
+            </div>
+
+            <div class="plan-card premium">
+                <div class="plan-header">
+                    <h3>Premium</h3>
+                    <div class="plan-price">
+                        <span class="price" id="premiumPrice">50</span>
+                        <span class="currency">AZN</span>
+                        <span class="period">/ay</span>
+                    </div>
+                    <p class="plan-description">Böyük şirkətlər üçün</p>
+                </div>
+                
+                <div class="plan-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span><strong>Limitsiz</strong> elan</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Premium görünüş</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Əsas axtarışda göstərilmə</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>10 şəkil yükləmə</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Logo əlavəsi</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Axtarışda üst sıralar</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Əsas səhifədə reklam</span>
+                    </div>
+                </div>
+
+                <button class="plan-btn premium-btn" onclick="selectPlan('premium')">
+                    Seç
+                </button>
+            </div>
+        </div>
+
+        <!-- Features Comparison Table -->
+        <div class="features-table">
+            <h2>Xüsusiyyətlərin Müqayisəsi</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Xüsusiyyət</th>
+                        <th>Basic</th>
+                        <th>Pro</th>
+                        <th>Premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aktiv elan sayı</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>Limitsiz</td>
+                    </tr>
+                    <tr>
+                        <td>Şəkil yükləmə</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td>5 şəkil</td>
+                        <td>10 şəkil</td>
+                    </tr>
+                    <tr>
+                        <td>Logo əlavəsi</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Axtarışda üst sıralar</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Əsas səhifədə reklam</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Statistika paneli</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td>Əsas statistika</td>
+                        <td>Ətraflı statistika</td>
+                    </tr>
+                    <tr>
+                        <td>Dəstək</td>
+                        <td>Email</td>
+                        <td>Email + Chat</td>
+                        <td>Prioritet dəstək</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Tez-tez Verilən Suallar</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Abunəliyi necə ləğv edə bilərəm?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Hesab tənzimləmələrinizdən istənilən vaxt abunəliyi ləğv edə bilərsiniz. Ləğv etdikdən sonra abunəlik müddətinizin sonuna qədər xidmətlərdən istifadə edə bilərsiniz.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Ödəniş üsulları nələrdir?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bank kartı (Visa, Mastercard), PayPal, və elektron pul kisələri ilə ödəniş edə bilərsiniz.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Planı dəyişə bilərəmmi?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bəli, istənilən vaxt planınızı yüksəldə və ya aşağı sala bilərsiniz. Fərq məbləği növbəti faktura zamanı nəzərə alınacaq.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Pulsuz sınaq müddəti varmı?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bəli, bütün yeni istifadəçilər üçün 7 günlük pulsuz sınaq müddəti təqdim edirik. Kredit kartı tələb olunmur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2>Hələ əmin deyilsiniz?</h2>
+                <p>7 günlük pulsuz sınaq müddətimizlə bütün xüsusiyyətləri sınayın. Heç bir risk yoxdur!</p>
+                <button class="cta-btn" onclick="startFreeTrial()">
+                    <i class="fas fa-play-circle"></i>
+                    Pulsuz Sınağa Başla
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Ödəniş Et</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="selected-plan-info" id="selectedPlanInfo">
+                    <!-- Selected plan info will be loaded here -->
+                </div>
+                
+                <form id="paymentForm" class="payment-form">
+                    <div class="form-group">
+                        <label>Kart Nömrəsi</label>
+                        <div class="card-input">
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                            <div class="card-icons">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Son istifadə tarixi</label>
+                            <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" id="cvv" placeholder="123" maxlength="3">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Kart Sahibinin Adı</label>
+                        <input type="text" id="cardHolder" placeholder="Ad Soyad">
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <label>
+                            <input type="checkbox" id="saveCard">
+                            <span class="checkmark"></span>
+                            Kart məlumatlarını yadda saxla
+                        </label>
+                    </div>
+                    
+                    <div class="payment-summary">
+                        <div class="summary-item">
+                            <span>Plan:</span>
+                            <span id="summaryPlan">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Müddət:</span>
+                            <span id="summaryPeriod">-</span>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Ümumi:</span>
+                            <span id="summaryTotal">- AZN</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-close">Ləğv et</button>
+                <button class="btn-primary" onclick="processPayment()">
+                    <i class="fas fa-lock"></i>
+                    Təhlükəsiz Ödəniş Et
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="pricing.js"></script>
+</body>
+</html>

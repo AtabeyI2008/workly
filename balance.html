@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balans - BizNet</title>
+    <link rel="stylesheet" href="balance.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">BizNet</a>
+            </div>
+            <div class="nav-menu">
+                <a href="jobs.html" class="nav-link">İş Elanları</a>
+                <a href="freelancers.html" class="nav-link">Freelancerlar</a>
+                <a href="companies.html" class="nav-link">Şirkətlər</a>
+                <a href="messages.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span class="notification-badge">3</span>
+                </a>
+                <div class="user-menu">
+                    <div class="user-avatar" id="userAvatar">
+                        <img src="" alt="Profil" id="avatarImg">
+                        <span class="user-name" id="userName">İstifadəçi</span>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user"></i> Profilim
+                        </a>
+                        <a href="balance.html" class="dropdown-item active">
+                            <i class="fas fa-wallet"></i> Balansım
+                        </a>
+                        <a href="messages.html" class="dropdown-item">
+                            <i class="fas fa-envelope"></i> Mesajlar
+                            <span class="badge">3</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Çıxış
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Balance Container -->
+    <div class="balance-container">
+        <div class="balance-header">
+            <h1>Balansım</h1>
+            <p>Hesabınızı idarə edin və ödənişlər edin</p>
+        </div>
+
+        <div class="balance-content">
+            <!-- Left Column - Balance Overview & Actions -->
+            <div class="balance-left">
+                <!-- Balance Card -->
+                <div class="balance-card">
+                    <div class="balance-info">
+                        <div class="balance-amount">
+                            <span class="amount" id="currentBalance">0.00</span>
+                            <span class="currency">AZN</span>
+                        </div>
+                        <div class="balance-label">Cari Balans</div>
+                    </div>
+                    <div class="balance-actions">
+                        <button class="action-btn primary" onclick="showAddFundsModal()">
+                            <i class="fas fa-plus"></i>
+                            Pul Əlavə Et
+                        </button>
+                        <button class="action-btn secondary" onclick="showWithdrawModal()">
+                            <i class="fas fa-arrow-up"></i>
+                            Pul Çıxar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon income">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-amount" id="totalIncome">0.00 AZN</div>
+                            <div class="stat-label">Ümumi Gəlir</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon expense">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-amount" id="totalExpense">0.00 AZN</div>
+                            <div class="stat-label">Ümumi Xərc</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon transactions">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-amount" id="totalTransactions">0</div>
+                            <div class="stat-label">Əməliyyatlar</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="payment-methods">
+                    <div class="section-header">
+                        <h3>Ödəniş Üsulları</h3>
+                        <button class="add-method-btn" onclick="showAddPaymentMethodModal()">
+                            <i class="fas fa-plus"></i>
+                            Əlavə et
+                        </button>
+                    </div>
+                    
+                    <div class="methods-list" id="paymentMethodsList">
+                        <!-- Payment methods will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Transactions -->
+            <div class="balance-right">
+                <div class="transactions-section">
+                    <div class="section-header">
+                        <h3>Son Əməliyyatlar</h3>
+                        <div class="filter-actions">
+                            <select id="transactionFilter" onchange="filterTransactions()">
+                                <option value="all">Hamısı</option>
+                                <option value="income">Gəlir</option>
+                                <option value="expense">Xərc</option>
+                                <option value="withdrawal">Çıxarış</option>
+                                <option value="payment">Ödəniş</option>
+                            </select>
+                            <button class="export-btn" onclick="exportTransactions()">
+                                <i class="fas fa-download"></i>
+                                Export
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="transactions-list" id="transactionsList">
+                        <!-- Transactions will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Funds Modal -->
+    <div class="modal" id="addFundsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Hesaba Pul Əlavə Et</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="amount-selection">
+                    <h4>Məbləğ Seçin</h4>
+                    <div class="amount-options">
+                        <button class="amount-option" data-amount="10">10 AZN</button>
+                        <button class="amount-option" data-amount="25">25 AZN</button>
+                        <button class="amount-option" data-amount="50">50 AZN</button>
+                        <button class="amount-option" data-amount="100">100 AZN</button>
+                        <button class="amount-option" data-amount="250">250 AZN</button>
+                        <button class="amount-option" data-amount="500">500 AZN</button>
+                    </div>
+                    
+                    <div class="custom-amount">
+                        <label>Və ya Özəl Məbləğ</label>
+                        <div class="amount-input">
+                            <input type="number" id="customAmount" placeholder="0.00" min="1" max="10000">
+                            <span class="currency-symbol">AZN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-method-selection">
+                    <h4>Ödəniş Üsulu</h4>
+                    <div class="method-options" id="fundingMethods">
+                        <!-- Payment methods for funding will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="payment-summary">
+                    <div class="summary-item">
+                        <span>Məbləğ:</span>
+                        <span id="summaryAmount">0.00 AZN</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Komissiya (1.5%):</span>
+                        <span id="summaryFee">0.00 AZN</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Ümumi:</span>
+                        <span id="summaryTotal">0.00 AZN</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-close">Ləğv et</button>
+                <button class="btn-primary" onclick="processPayment()">
+                    <i class="fas fa-lock"></i>
+                    Ödəniş Et
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Withdraw Modal -->
+    <div class="modal" id="withdrawModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Pul Çıxar</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="withdraw-info">
+                    <div class="available-balance">
+                        <span>Mövcud Balans:</span>
+                        <span id="availableBalance">0.00 AZN</span>
+                    </div>
+                    <div class="min-withdraw">
+                        <i class="fas fa-info-circle"></i>
+                        Minimum çıxarış məbləği: 10 AZN
+                    </div>
+                </div>
+
+                <div class="withdraw-amount">
+                    <label>Çıxarılacaq Məbləğ</label>
+                    <div class="amount-input">
+                        <input type="number" id="withdrawAmount" placeholder="0.00" min="10">
+                        <span class="currency-symbol">AZN</span>
+                    </div>
+                </div>
+
+                <div class="withdraw-method">
+                    <h4>Çıxarış Üsulu</h4>
+                    <div class="method-options" id="withdrawMethods">
+                        <!-- Withdraw methods will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="withdraw-summary">
+                    <div class="summary-item">
+                        <span>Çıxarış məbləği:</span>
+                        <span id="withdrawSummaryAmount">0.00 AZN</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Komissiya (1%):</span>
+                        <span id="withdrawSummaryFee">0.00 AZN</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Alacağınız məbləğ:</span>
+                        <span id="withdrawSummaryTotal">0.00 AZN</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-close">Ləğv et</button>
+                <button class="btn-primary" onclick="processWithdrawal()">
+                    <i class="fas fa-check"></i>
+                    Təsdiq et
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Payment Method Modal -->
+    <div class="modal" id="addPaymentMethodModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Ödəniş Üsulu Əlavə Et</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="method-type-selection">
+                    <h4>Üsul Növü</h4>
+                    <div class="method-types">
+                        <div class="method-type-card" data-type="card">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Bank Kartı</span>
+                        </div>
+                        <div class="method-type-card" data-type="portmanat">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Portmanat</span>
+                        </div>
+                        <div class="method-type-card" data-type="expresspay">
+                            <i class="fas fa-bolt"></i>
+                            <span>ExpressPay</span>
+                        </div>
+                        <div class="method-type-card" data-type="millikart">
+                            <i class="fas fa-credit-card"></i>
+                            <span>MilliKart</span>
+                        </div>
+                        <div class="method-type-card" data-type="bank">
+                            <i class="fas fa-university"></i>
+                            <span>Bank Köçürməsi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="paymentMethodForm" class="method-form" style="display: none;">
+                    <!-- Form content will be loaded dynamically -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-close">Ləğv et</button>
+                <button class="btn-primary" id="saveMethodBtn" style="display: none;">
+                    <i class="fas fa-save"></i>
+                    Yadda Saxla
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="balance.js"></script>
+</body>
+</html>
